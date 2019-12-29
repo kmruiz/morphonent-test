@@ -34,6 +34,16 @@ describe('test suite', () => {
         expect(result).toBe(text)
     })
 
+    it('should find an element by class on deep conditions', async () => {
+        const className = faker.internet.userName()
+        const text = faker.internet.userName()
+
+        let component = () => element('div', {}, [ element('span', {}, 'Blah'), element('div', { class: className }, text) ])
+        const result = await testing(component).findByClass(className).textContent()
+
+        expect(result).toBe(text)
+    })
+
     it('should find the first element in an array', async () => {
         const className = faker.internet.userName()
         const text = faker.internet.userName()
