@@ -1,6 +1,6 @@
 # morphonent-test
 [![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Fkmruiz%2Fmorphonent-test%2Fbadge&style=flat)](https://actions-badge.atrox.dev/kmruiz/morphonent/goto)
-[![Coverage Status](https://coveralls.io/repos/github/kmruiz/morphonent-test/badge.svg?branch=master)](https://coveralls.io/github/kmruiz/morphonent?branch=master) 
+[![Coverage Status](https://coveralls.io/repos/github/kmruiz/morphonent-test/badge.svg?branch=master)](https://coveralls.io/github/kmruiz/morphonent-test?branch=master) 
 ![npm](https://img.shields.io/npm/v/morphonent-test.svg) 
 ![npm bundle size](https://img.shields.io/bundlephobia/min/morphonent-test.svg) 
 ![npm](https://img.shields.io/npm/dm/morphonent-test.svg)
