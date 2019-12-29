@@ -1,6 +1,6 @@
 {
   "name": "morphonent-test",
-  "version": "1.2.1",
+  "version": "0.0.1",
   "description": "testkit for morphonent applications",
   "main": "dist/index.js",
   "keywords": [
