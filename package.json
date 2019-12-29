@@ -31,7 +31,7 @@
     "Kevin Mas Ruiz <masruizkevin@gmail.com>"
   ],
   "license": "MIT",
-  "dependencies": {
+  "peerDependencies": {
     "morphonent": "^0.12.2"
   },
   "devDependencies": {
