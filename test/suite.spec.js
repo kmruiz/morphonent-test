@@ -99,4 +99,11 @@ describe('test suite', () => {
 
     expect(result).toBe(text)
   })
+
+  it('should find children of a root component', async () => {
+    const blueGreen = testing(() => element('div', {}, 'Blue', 'Green'))
+
+    const all = await blueGreen.findChildren().textContent()
+    expect(all).toStrictEqual(['Blue', 'Green'])
+  })
 })
