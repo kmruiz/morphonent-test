@@ -3413,11 +3413,6 @@ mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
-morphonent@^0.12.2:
-  version "0.12.2"
-  resolved "https://registry.yarnpkg.com/morphonent/-/morphonent-0.12.2.tgz#df0fd7bc08737ca7893b9be3ffd06648ff9f4d45"
-  integrity sha512-nqLNSPcxpWykhl+VvobeUFUx32OwX+bhK5wuYdzrtTn6gdp4vv18FVHrl7StQq8guxGA+j/iq1qjavZb3rfJxw==
-
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
