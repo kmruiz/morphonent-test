@@ -18,7 +18,7 @@ morphonent-test is a testing library for verifying components written with [morp
 
 morphonent-test is a simple npm package that you can install with yarn:
 
-`$> yarn install -D morphonent-test`
+`$> yarn add -D morphonent-test`
 
 or npm:
 
