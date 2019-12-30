@@ -117,7 +117,6 @@ describe('test suite', () => {
     expect(result).toBe('Hello')
   })
 
-  
   it('should be able to check the second step of a transition', async () => {
     const firstStep = () => 'Hello'
     const secondStep = async () => 'Bye'
