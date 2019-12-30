@@ -149,4 +149,14 @@ describe('test suite', () => {
     const result = await testing(list).findChildren().count()
     expect(result).toBe(3)
   })
+
+  it('should allow navigating between siblings', async () => {
+    const input = (value, onkeypress) => element('input', { type: 'text', onkeypress: (ev) => onkeypress(ev.currentTarget.value), value })
+    const button = (value, onclick) => element('button', { onclick: () => onclick(value) }, value)
+
+    const component = (value) => element('div', {}, input(value, component), button(value, component))
+    const result = await testing(component('')).findChildren().findFirst().write('Hello World!').findChildren().findNth(1).textContent()
+
+    expect(result).toBe('Hello World!')
+  })
 })
