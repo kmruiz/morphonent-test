@@ -1,5 +1,5 @@
 import '@babel/polyfill'
-import { element } from 'morphonent'
+import { element, transition } from 'morphonent'
 import { testing, click } from '../lib/index'
 import faker from 'faker'
 
@@ -105,5 +105,26 @@ describe('test suite', () => {
 
     const all = await blueGreen.findChildren().textContent()
     expect(all).toStrictEqual(['Blue', 'Green'])
+  })
+
+  it('should be able to check the first step of a transition', async () => {
+    const firstStep = () => 'Hello'
+    const secondStep = async () => 'Bye'
+
+    const all = testing(() => transition(firstStep, secondStep))
+    const result = await all.unfinishedTransition().textContent()
+
+    expect(result).toBe('Hello')
+  })
+
+  
+  it('should be able to check the second step of a transition', async () => {
+    const firstStep = () => 'Hello'
+    const secondStep = async () => 'Bye'
+
+    const all = testing(() => transition(firstStep, secondStep))
+    const result = await all.finishedTransition().textContent()
+
+    expect(result).toBe('Bye')
   })
 })

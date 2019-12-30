@@ -139,6 +139,34 @@ const green = await blueGreen.findChildren().findNth(1).textContent()
 expect(green).toBe('Green')
 ```
 
+### TestComponent.unfinishedTransition
+
+Allows you to navigate through the first step of a transition.
+
+```js
+const firstStep = () => 'Hello'
+const secondStep = async () => 'Bye'
+
+const all = testing(() => transition(firstStep, secondStep))
+const result = await all.unfinishedTransition().textContent()
+
+expect(result).toBe('Hello')
+```
+
+### TestComponent.finishedTransition
+
+Allows you to navigate through the second step of a transition.
+
+```js
+const firstStep = () => 'Hello'
+const secondStep = async () => 'Bye'
+
+const all = testing(() => transition(firstStep, secondStep))
+const result = await all.finishedTransition().textContent()
+
+expect(result).toBe('Bye')
+```
+
 ### TestComponent.trigger
 
 Simulates an event on the current selected component and switches the pointer to the root component that returns the event handler. Right now, there are four default event types:
