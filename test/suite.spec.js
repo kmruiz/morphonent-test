@@ -137,7 +137,7 @@ describe('test suite', () => {
 
   it('should be able to write some text in an input', async () => {
     const text = faker.internet.userName()
-    const input = (value) => element('input', { type: 'text', onkeypress: (ev) => input(ev.currentTarget.value.toUpperCase()), value })
+    const input = (value) => element('input', { type: 'text', onkeyup: (ev) => input(ev.currentTarget.value.toUpperCase()), value })
 
     const result = await testing(input('')).write(text).textContent()
     expect(result).toBe(text.toUpperCase())
@@ -151,7 +151,7 @@ describe('test suite', () => {
   })
 
   it('should allow navigating between siblings', async () => {
-    const input = (value, onkeypress) => element('input', { type: 'text', onkeypress: (ev) => onkeypress(ev.currentTarget.value), value })
+    const input = (value, onkeyup) => element('input', { type: 'text', onkeyup: (ev) => onkeyup(ev.currentTarget.value), value })
     const button = (value, onclick) => element('button', { onclick: () => onclick(value) }, value)
 
     const component = (value) => element('div', {}, input(value, component), button(value, component))
