@@ -134,4 +134,19 @@ describe('test suite', () => {
 
     expect(result).toBe('Bye')
   })
+
+  it('should be able to write some text in an input', async () => {
+    const text = faker.internet.userName()
+    const input = (value) => element('input', { type: 'text', onkeypress: (ev) => input(ev.currentTarget.value.toUpperCase()), value })
+
+    const result = await testing(input('')).write(text).textContent()
+    expect(result).toBe(text.toUpperCase())
+  })
+
+  it('should be able to get the number of children in a component', async () => {
+    const list = () => element('p', {}, 1, 2, 3)
+
+    const result = await testing(list).findChildren().count()
+    expect(result).toBe(3)
+  })
 })

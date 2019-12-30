@@ -167,6 +167,30 @@ const result = await all.finishedTransition().textContent()
 expect(result).toBe('Bye')
 ```
 
+### TestComponent.write
+
+Simulates a set of events for writing text using the keyboard on the current selected component. By default, it triggers the `onkeypress` event, but you can define any event that might suit your test.
+
+```js
+const text = faker.internet.userName()
+const input = (value) => element('input', { type: 'text', onkeypress: (ev) => input(ev.currentTarget.value.toUpperCase()), value })
+
+const result = await testing(input('')).write(text).textContent()
+expect(result).toBe(text.toUpperCase())
+```
+
+Changing the type of event to be triggered:
+
+```js
+import { keyup } from 'morphonent-test'
+
+const text = faker.internet.userName()
+const input = (value) => element('input', { type: 'text', onkeyup: (ev) => input(ev.currentTarget.value.toUpperCase()), value })
+
+const result = await testing(input('')).write(text, keyup).textContent()
+expect(result).toBe(text.toUpperCase())
+```
+
 ### TestComponent.trigger
 
 Simulates an event on the current selected component and switches the pointer to the root component that returns the event handler. Right now, there are four default event types:
@@ -209,7 +233,6 @@ const awesome = await testing(myComponent).attribute('awesome')
 expect(awesome).toBe('yes')
 ```
 
-
 ### TestComponent.textContent
 
 Returns a promise with the text content of an element. If the component has a `value` attribute, it will return it's value instead (for inputs, for example).
@@ -219,4 +242,15 @@ const myComponent = element('div', { awesome: 'yes' }, 'Hello World!')
 const awesome = await testing(myComponent).textContent()
 
 expect(awesome).toBe('Hello World!')
+```
+
+### TestComponent.count
+
+Returns the number of elements matched.
+
+```js
+const list = () => element('p', {}, 1, 2, 3)
+
+const result = await testing(list).findChildren().count()
+expect(result).toBe(3)
 ```
