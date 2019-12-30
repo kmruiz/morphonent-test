@@ -32,7 +32,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "morphonent": "^0.12.6"
+    "morphonent": "^0.13.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
